@@ -1,16 +1,445 @@
-
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-<title>Michael Wei</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Michael Wei | Portfolio</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0f1115;
+      color: #f5f7fa;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: rgba(15, 17, 21, 0.95);
+      border-bottom: 1px solid #222831;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 0;
+    }
+
+    .logo {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #c9d1d9;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover {
+      color: #ffffff;
+    }
+
+    .hero {
+      min-height: 80vh;
+      display: flex;
+      align-items: center;
+      border-bottom: 1px solid #222831;
+    }
+
+    .hero-content {
+      padding: 80px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid #2f3742;
+      border-radius: 999px;
+      color: #9fb3c8;
+      margin-bottom: 24px;
+      font-size: 0.9rem;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      line-height: 1.1;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      color: #b8c0cc;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      border-radius: 10px;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-secondary {
+      border: 1px solid #2f3742;
+      color: #e5e7eb;
+    }
+
+    .btn-secondary:hover {
+      background: #1b2028;
+    }
+
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid #222831;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+
+    .section-subtitle {
+      color: #aab4c0;
+      max-width: 760px;
+      margin-bottom: 40px;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+    }
+
+    .card {
+      background: #161b22;
+      border: 1px solid #27303b;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .card h3 {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+    }
+
+    .card p, .card li {
+      color: #c2cad5;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .skill {
+      padding: 8px 12px;
+      background: #0f141a;
+      border: 1px solid #2d3742;
+      border-radius: 999px;
+      color: #d8dee9;
+      font-size: 0.9rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .project-card {
+      background: #161b22;
+      border: 1px solid #27303b;
+      border-radius: 18px;
+      padding: 22px;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      border-color: #3a4654;
+    }
+
+    .project-card h3 {
+      margin-bottom: 10px;
+      font-size: 1.1rem;
+    }
+
+    .project-card p {
+      color: #bcc6d3;
+      margin-bottom: 14px;
+    }
+
+    .project-links {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .project-links a {
+      color: #8ab4ff;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .github-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      background: #161b22;
+      border: 1px solid #27303b;
+      border-radius: 18px;
+      padding: 24px;
+    }
+
+    .github-box p {
+      color: #c4ccd7;
+      max-width: 700px;
+    }
+
+    footer {
+      padding: 36px 0 60px;
+      text-align: center;
+      color: #97a3b3;
+    }
+
+    @media (max-width: 900px) {
+      .about-grid,
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.4rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .nav-inner {
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .hero {
+        min-height: auto;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Michael Wei</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#github">GitHub</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
 
-<h1>Michael Wei</h1>
-<p>Welcome to my personal website.</p>
+  <header class="hero">
+    <div class="container hero-content">
+      <div class="tag">AI · Data Science · Software Projects</div>
+      <h1>Hi, I’m Michael Wei.</h1>
+      <p>
+        I am a student and builder interested in AI, data science, machine learning,
+        and full-stack project development. This site is a space to showcase my work,
+        technical projects, and ongoing learning journey.
+      </p>
+      <div class="hero-buttons">
+        <a class="btn btn-primary" href="#projects">View Projects</a>
+        <a class="btn btn-secondary" href="https://github.com/mcwch" target="_blank">My GitHub</a>
+      </div>
+    </div>
+  </header>
 
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">
+        I am especially interested in practical AI applications, data-driven systems,
+        and building projects that connect technical implementation with real-world use.
+      </p>
+
+      <div class="about-grid">
+        <div class="card">
+          <h3>Background</h3>
+          <p>
+            I focus on areas such as machine learning, data science, software development,
+            and AI-powered systems. I enjoy turning ideas into working demos, from analysis
+            projects to web-based tools and portfolio-ready applications.
+          </p>
+          <div class="skills">
+            <span class="skill">Python</span>
+            <span class="skill">SQL</span>
+            <span class="skill">JavaScript</span>
+            <span class="skill">HTML/CSS</span>
+            <span class="skill">Machine Learning</span>
+            <span class="skill">Data Analysis</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Focus Areas</h3>
+          <ul style="padding-left: 18px;">
+            <li>AI and machine learning projects</li>
+            <li>Data science workflows and analytics</li>
+            <li>Full-stack prototypes and demos</li>
+            <li>Portfolio and research-oriented development</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <p class="section-subtitle">
+        Here are a few sample sections you can keep for now and later replace with your real projects.
+      </p>
+
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Trading Simulation Platform</h3>
+          <p>
+            A full-stack project for simulating investment strategies, comparing outcomes,
+            and exploring AI-assisted decision logic in a portfolio setting.
+          </p>
+          <div class="project-links">
+            <a href="#">Live Demo</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>Android Smell Analyzer</h3>
+          <p>
+            A prototype system that analyzes Android repositories and supports code smell
+            detection workflows with LLM-assisted or rule-based backend logic.
+          </p>
+          <div class="project-links">
+            <a href="#">Project Summary</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <h3>AI Resource Finder</h3>
+          <p>
+            A resource discovery tool designed to organize information, surface useful content,
+            and support a more accessible user experience through AI-based interaction.
+          </p>
+          <div class="project-links">
+            <a href="#">Overview</a>
+            <a href="#">GitHub Repo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="github">
+    <div class="container">
+      <h2 class="section-title">GitHub</h2>
+      <p class="section-subtitle">
+        My GitHub is where I store code, experiments, and technical project work.
+      </p>
+
+      <div class="github-box">
+        <div>
+          <h3 style="margin-bottom: 10px;">Explore my repositories</h3>
+          <p>
+            Visit my GitHub profile to view my code, project repositories, and ongoing technical work.
+          </p>
+        </div>
+        <a class="btn btn-primary" href="https://github.com/mcwch" target="_blank">Go to GitHub</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">
+        Feel free to reach out for collaboration, project discussion, or networking.
+      </p>
+
+      <div class="card">
+        <h3>Connect</h3>
+        <p><strong>Email:</strong> your_email@example.com</p>
+        <p><strong>GitHub:</strong> github.com/mcwch</p>
+        <p><strong>LinkedIn:</strong> your-linkedin-url</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Michael Wei. Built with GitHub Pages.</p>
+    </div>
+  </footer>
 </body>
-
 </html>
